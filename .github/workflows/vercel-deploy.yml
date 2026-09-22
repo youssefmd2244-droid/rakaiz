@@ -1,0 +1,47 @@
+name: Deploy to Vercel (optional)
+
+# By default Vercel deploys automatically through its GitHub integration
+# (Import Project → pick the repo). You do NOT need this workflow in that case.
+#
+# Use this workflow only if you prefer deploying from GitHub Actions:
+#   1) Repo → Settings → Secrets and variables → Actions → Secrets:
+#        VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID
+#   2) Repo → Settings → Secrets and variables → Actions → Variables:
+#        USE_ACTIONS_DEPLOY = true
+#   3) Disconnect the repo from Vercel's Git integration to avoid double deployments.
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  preview:
+    if: ${{ vars.USE_ACTIONS_DEPLOY == 'true' && github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --global vercel@latest
+      - run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+  production:
+    if: ${{ vars.USE_ACTIONS_DEPLOY == 'true' && github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --global vercel@latest
+      - run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
