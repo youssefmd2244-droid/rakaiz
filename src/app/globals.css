@@ -1,0 +1,508 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   RAKAIZ DESIGN TOKENS
+   -------------------------------------------------------------------------
+   Base palette   : Black · White · Gold
+   Accent palette : Gold · Red · White · Blue · Green · Brown · Orange
+   The base palette is theme-aware (dark / light). The accent palette is used
+   only for decoration (icons, borders, badges, bars) through [data-accent].
+   ========================================================================= */
+
+@theme inline {
+  /* Surfaces */
+  --color-ink: var(--c-ink);
+  --color-ink-2: var(--c-ink-2);
+  --color-card: var(--c-card);
+  --color-card-2: var(--c-card-2);
+  --color-card-3: var(--c-card-3);
+
+  /* Lines */
+  --color-line-soft: var(--c-line-soft);
+  --color-line: var(--c-line);
+  --color-line-2: var(--c-line-2);
+
+  /* Text */
+  --color-fg: var(--c-fg);
+  --color-fg-2: var(--c-fg-2);
+  --color-fg-3: var(--c-fg-3);
+  --color-fg-4: var(--c-fg-4);
+  --color-fg-5: var(--c-fg-5);
+
+  /* Gold (fills / borders are constant, text is theme-aware for contrast) */
+  --color-gold: #f0b323;
+  --color-gold-hi: #ffd66b;
+  --color-gold-lo: #b8860b;
+  --color-gold-soft: #ffe28a;
+  --color-gold-text: var(--c-gold-text);
+  --color-on-gold: #0a0a0a;
+  --color-onyx: #0a0a0a;
+
+  /* Decorative accent of the current [data-accent] scope */
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-on-accent: var(--accent-on);
+
+  /* Text-safe accent colors (readable on both black and white surfaces) */
+  --color-t-red: var(--t-red);
+  --color-t-blue: var(--t-blue);
+  --color-t-green: var(--t-green);
+  --color-t-orange: var(--t-orange);
+  --color-t-brown: var(--t-brown);
+}
+
+@layer base {
+  /* ---------- DARK (default) ---------- */
+  :root,
+  .force-dark {
+    color-scheme: dark;
+
+    --c-ink: #0a0a0a;
+    --c-ink-2: #050505;
+    --c-card: #111111;
+    --c-card-2: #181818;
+    --c-card-3: #222222;
+
+    --c-line-soft: #1e1e1e;
+    --c-line: #2a2a2a;
+    --c-line-2: #3a3a3a;
+
+    --c-fg: #ffffff;
+    --c-fg-2: #d6d6d6;
+    --c-fg-3: #a8a8a8;
+    --c-fg-4: #8c8c8c;
+    --c-fg-5: #6c6c6c;
+
+    --c-gold-text: #f0b323;
+
+    --t-red: #ff6b70;
+    --t-blue: #6ea8ff;
+    --t-green: #34d18b;
+    --t-orange: #ff9a3c;
+    --t-brown: #c9925f;
+
+    --gold-grad-text: linear-gradient(135deg, #ffe28a 0%, #f0b323 50%, #b8860b 100%);
+  }
+
+  /* ---------- LIGHT ---------- */
+  .light-mode {
+    color-scheme: light;
+
+    --c-ink: #ffffff;
+    --c-ink-2: #f7f6f2;
+    --c-card: #fbfaf7;
+    --c-card-2: #f3f1ea;
+    --c-card-3: #e9e6dc;
+
+    --c-line-soft: #ebe6d8;
+    --c-line: #ded7c6;
+    --c-line-2: #c9c0aa;
+
+    --c-fg: #0a0a0a;
+    --c-fg-2: #2c2c2c;
+    --c-fg-3: #515151;
+    --c-fg-4: #6b6b6b;
+    --c-fg-5: #858585;
+
+    --c-gold-text: #8c6300;
+
+    --t-red: #c42b31;
+    --t-blue: #1d5fd1;
+    --t-green: #0f7d4f;
+    --t-orange: #c2570c;
+    --t-brown: #7a4a22;
+
+    --gold-grad-text: linear-gradient(135deg, #b8860b 0%, #8c6300 50%, #5e4200 100%);
+  }
+
+  /* Sections that stay black even in light mode (hero, footer, preloader) */
+  .light-mode .force-dark {
+    color-scheme: dark;
+
+    --c-ink: #0a0a0a;
+    --c-ink-2: #050505;
+    --c-card: #111111;
+    --c-card-2: #181818;
+    --c-card-3: #222222;
+
+    --c-line-soft: #1e1e1e;
+    --c-line: #2a2a2a;
+    --c-line-2: #3a3a3a;
+
+    --c-fg: #ffffff;
+    --c-fg-2: #d6d6d6;
+    --c-fg-3: #a8a8a8;
+    --c-fg-4: #8c8c8c;
+    --c-fg-5: #6c6c6c;
+
+    --c-gold-text: #f0b323;
+
+    --t-red: #ff6b70;
+    --t-blue: #6ea8ff;
+    --t-green: #34d18b;
+    --t-orange: #ff9a3c;
+    --t-brown: #c9925f;
+
+    --gold-grad-text: linear-gradient(135deg, #ffe28a 0%, #f0b323 50%, #b8860b 100%);
+  }
+
+  .force-dark {
+    background-color: var(--c-ink);
+    color: var(--c-fg);
+  }
+
+  /* ---------- Decorative accent scopes ---------- */
+  :root,
+  [data-accent="gold"] {
+    --accent: #f0b323;
+    --accent-text: var(--c-gold-text);
+    --accent-on: #0a0a0a;
+  }
+  [data-accent="red"] {
+    --accent: #e5484d;
+    --accent-text: var(--t-red);
+    --accent-on: #ffffff;
+  }
+  [data-accent="blue"] {
+    --accent: #3b82f6;
+    --accent-text: var(--t-blue);
+    --accent-on: #ffffff;
+  }
+  [data-accent="green"] {
+    --accent: #22b573;
+    --accent-text: var(--t-green);
+    --accent-on: #04140c;
+  }
+  [data-accent="orange"] {
+    --accent: #ff8a1f;
+    --accent-text: var(--t-orange);
+    --accent-on: #1a0d00;
+  }
+  [data-accent="brown"] {
+    --accent: #a8734a;
+    --accent-text: var(--t-brown);
+    --accent-on: #ffffff;
+  }
+  [data-accent="white"] {
+    --accent: #f5f5f5;
+    --accent-text: var(--c-fg);
+    --accent-on: #0a0a0a;
+  }
+  .light-mode [data-accent="white"] {
+    --accent: #141414;
+    --accent-on: #ffffff;
+  }
+  .light-mode .force-dark [data-accent="white"] {
+    --accent: #f5f5f5;
+    --accent-on: #0a0a0a;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--c-ink);
+    color: var(--c-fg);
+    font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  [dir="ltr"] body {
+    font-family: 'Sora', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Gold helpers
+   ------------------------------------------------------------------------- */
+.gold-gradient-text {
+  background: var(--gold-grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #ffd66b 0%, #f0b323 50%, #b8860b 100%);
+}
+
+.gold-border-glow {
+  border: 1px solid rgba(240, 179, 35, 0.4);
+  box-shadow: 0 0 25px rgba(240, 179, 35, 0.12);
+}
+
+.gold-border-glow:hover {
+  border-color: rgba(240, 179, 35, 0.8);
+  box-shadow: 0 0 35px rgba(240, 179, 35, 0.25);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: color-mix(in srgb, var(--c-card) 70%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(240, 179, 35, 0.15);
+}
+
+/* Gold Button Sweep Animation */
+.btn-gold-sweep {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: rotate(30deg) translate(-100%, -100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-gold-sweep:hover::after {
+  transform: rotate(30deg) translate(100%, 100%);
+}
+
+/* Architectural Title Pill */
+.title-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(240, 179, 35, 0.1);
+  border: 1px solid rgba(240, 179, 35, 0.35);
+  color: var(--c-gold-text);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* -------------------------------------------------------------------------
+   Decorative multi-color spectrum bar
+   gold · red · blue · green · orange · brown · white/black
+   ------------------------------------------------------------------------- */
+.spectrum-bar {
+  height: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    #f0b323 0 14.28%,
+    #e5484d 14.28% 28.57%,
+    #3b82f6 28.57% 42.85%,
+    #22b573 42.85% 57.14%,
+    #ff8a1f 57.14% 71.42%,
+    #a8734a 71.42% 85.71%,
+    var(--c-fg) 85.71% 100%
+  );
+}
+
+/* Colored top edge for cards that carry an accent */
+.accent-edge {
+  position: relative;
+}
+.accent-edge::before {
+  content: '';
+  position: absolute;
+  inset-inline: 1.5rem;
+  top: 0;
+  height: 3px;
+  border-radius: 0 0 6px 6px;
+  background: var(--accent);
+  opacity: 0.85;
+  transition: opacity 0.3s ease, inset-inline 0.3s ease;
+  pointer-events: none;
+}
+.accent-edge:hover::before {
+  opacity: 1;
+  inset-inline: 0.75rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-line-2);
+  border-radius: 4px;
+  border: 1px solid rgba(240, 179, 35, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f0b323;
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Lightweight replacements for the tw-animate "animate-in" helpers
+   (the plugin is not installed, so these classes did nothing before) */
+@keyframes rk-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes rk-slide-in-top {
+  from { opacity: 0; transform: translateY(-14px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-in {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+.animate-in.fade-in {
+  animation-name: rk-fade-in;
+}
+.animate-in.slide-in-from-top {
+  animation-name: rk-slide-in-top;
+}
+
+/* Subtle dotted background */
+.bg-noise {
+  background-image: radial-gradient(rgba(240, 179, 35, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Organic mask for Contact Section */
+.organic-arch-mask {
+  border-radius: 60% 40% 50% 50% / 40% 50% 50% 60%;
+  transition: all 0.5s ease;
+}
+
+.organic-arch-mask:hover {
+  border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%;
+}
+
+/* -------------------------------------------------------------------------
+   Scroll reveal (3D entrance) — driven by ScrollReveal.tsx
+   opacity + transform only (GPU friendly). The attribute is removed after the
+   animation so each element goes back to its own styles / hover effects.
+   ------------------------------------------------------------------------- */
+:root { --rk-dir: 1; }
+html[dir="rtl"] { --rk-dir: -1; }
+
+[data-rk] {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+[data-rk="pending"] {
+  opacity: 0;
+  transform-origin: 50% 100%;
+  transform: perspective(1200px)
+    translate3d(var(--rk-x, 0px), calc(var(--rk-y, 56px) * var(--rk-ys, 1)), 0)
+    rotateX(calc(var(--rk-rx, 12deg) * var(--rk-ys, 1)))
+    rotateY(var(--rk-ry, 0deg))
+    scale3d(var(--rk-sx, 0.96), var(--rk-sy, 0.96), 1);
+}
+
+[data-rk="in"] {
+  opacity: 1;
+  transform: perspective(1200px) translate3d(0px, 0px, 0) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--rk-delay, 0ms),
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) var(--rk-delay, 0ms);
+  will-change: transform, opacity;
+}
+
+/* Section titles: lighter lift, no tilt */
+[data-rk][data-rk-v="head"] {
+  --rk-y: 30px;
+  --rk-rx: 0deg;
+  --rk-sx: 1;
+  --rk-sy: 1;
+  transform-origin: 50% 50%;
+}
+
+/* The colored spectrum bar draws itself from the start side */
+[data-rk][data-rk-v="bar"] {
+  --rk-y: 0px;
+  --rk-rx: 0deg;
+  --rk-sx: 0;
+  --rk-sy: 1;
+  transform-origin: calc(50% - 50% * var(--rk-dir)) 50%;
+}
+
+/* Two-column blocks open like doors */
+[data-rk][data-rk-v="side-start"] {
+  --rk-x: calc(-80px * var(--rk-dir));
+  --rk-y: 24px;
+  --rk-rx: 0deg;
+  --rk-ry: calc(16deg * var(--rk-dir));
+  transform-origin: calc(50% - 50% * var(--rk-dir)) 50%;
+}
+[data-rk][data-rk-v="side-end"] {
+  --rk-x: calc(80px * var(--rk-dir));
+  --rk-y: 24px;
+  --rk-rx: 0deg;
+  --rk-ry: calc(-16deg * var(--rk-dir));
+  transform-origin: calc(50% + 50% * var(--rk-dir)) 50%;
+}
+
+/* Scrolling up: elements enter from the top with the mirrored tilt */
+[data-rk="pending"][data-rk-d="up"] {
+  --rk-ys: -1;
+}
+[data-rk="pending"][data-rk-d="up"]:not([data-rk-v]) {
+  transform-origin: 50% 0%;
+}
+
+/* Soft mode (device asks for reduced motion): fade + small lift, no 3D tilt */
+html[data-rk-soft] [data-rk="pending"] {
+  --rk-x: 0px;
+  --rk-y: 18px;
+  --rk-rx: 0deg;
+  --rk-ry: 0deg;
+  --rk-sx: 1;
+  --rk-sy: 1;
+}
+html[data-rk-soft] [data-rk="in"] {
+  transition-duration: 0.6s, 0.6s;
+}
+
+@media (max-width: 640px) {
+  [data-rk="pending"]:not([data-rk-v]) {
+    --rk-y: 36px;
+    --rk-rx: 8deg;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee,
+  .animate-in {
+    animation: none !important;
+  }
+}
