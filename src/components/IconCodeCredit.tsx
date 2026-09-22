@@ -119,12 +119,12 @@ export const IconCodeCredit: React.FC<IconCodeCreditProps> = ({ data, showcaseDa
                 <span dir="ltr">ICON CODE</span>
               </span>
               <h3 className="text-lg sm:text-xl font-black text-fg leading-snug">
-                {t("هذا الموقع تم تصميمه من شركة ", "This website was designed by ")}
+                {t("هذا الموقع تم تصميمه من فريق ", "This website was designed by ")}
                 <span className="gold-gradient-text" dir="ltr">Icon Code</span>
               </h3>
               <p className="text-xs sm:text-sm text-fg-3 max-w-3xl leading-relaxed">
                 {t(
-                  "شركة متخصصة في تحويل الأفكار إلى منتجات رقمية وهويات بصرية تصنع فرقًا. نجمع البرمجة والتصميم والتسويق والذكاء الاصطناعي في فريق واحد، لنقدّم لعملائنا حول العالم حلولًا عملية وشكلًا احترافيًا يليق بعلامتهم التجارية.",
+                  "فريق متخصص في تحويل الأفكار إلى منتجات رقمية وهويات بصرية تصنع فرقًا. نجمع البرمجة والتصميم والتسويق والذكاء الاصطناعي في فريق واحد، لنقدّم لعملائنا حول العالم حلولًا عملية وشكلًا احترافيًا يليق بعلامتهم التجارية.",
                   "A company that turns ideas into digital products and brand identities that make a difference. We combine programming, design, marketing and AI in one team, delivering practical solutions and a professional look to clients around the world."
                 )}
               </p>
