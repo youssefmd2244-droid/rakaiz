@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="100%" height="100%">
+  <rect width="400" height="120" rx="16" fill="#1A181E" stroke="#C59B27" stroke-width="2" stroke-opacity="0.3"/>
+  <text x="200" y="55" text-anchor="middle" font-family="'Cairo', sans-serif" font-weight="900" font-size="28" fill="#F0B323">RTCC</text>
+  <text x="200" y="85" text-anchor="middle" font-family="'Cairo', sans-serif" font-weight="500" font-size="14" fill="#A0A0A0">شركة الرشيد للتجارة والمقاولات</text>
+</svg>

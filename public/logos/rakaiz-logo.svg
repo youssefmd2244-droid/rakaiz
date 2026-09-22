@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+  <!-- Gold outer ring -->
+  <circle cx="500" cy="500" r="390" fill="none" stroke="#C59B27" stroke-width="32"/>
+  
+  <!-- Architectural Pillar Gate & Modern Lines -->
+  <!-- Top horizontal beams -->
+  <rect x="280" y="325" width="460" height="46" rx="2" fill="#C59B27"/>
+  <rect x="325" y="396" width="375" height="34" rx="2" fill="#C59B27"/>
+
+  <!-- Vertical pillars -->
+  <rect x="395" y="440" width="34" height="380" fill="#C59B27"/>
+  <rect x="495" y="440" width="34" height="390" fill="#C59B27"/>
+  <rect x="595" y="440" width="34" height="380" fill="#C59B27"/>
+
+  <!-- Stylized Monogram geometric elements -->
+  <!-- Rising vertical facets in warm bronze/taupe -->
+  <path d="M410 285 L445 320 L445 625 L410 625 Z" fill="#9C9283" opacity="0.95"/>
+  <path d="M450 325 L485 355 L485 625 L450 625 Z" fill="#AEA597" opacity="0.95"/>
+  <path d="M490 355 L525 385 L525 625 L490 625 Z" fill="#91887C" opacity="0.95"/>
+
+  <!-- Curved swoosh / D-arc -->
+  <path d="M525 350 C610 350, 650 420, 650 510 C650 590, 600 635, 525 635" fill="none" stroke="#A79F93" stroke-width="42" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Stylized ribbon swirl -->
+  <path d="M380 495 C380 445, 430 455, 470 510 C505 560, 545 615, 545 635 C520 625, 485 580, 450 535 C420 495, 380 500, 380 495 Z" fill="#6E6557"/>
+  <path d="M390 515 C390 480, 430 490, 470 540 C500 580, 530 625, 530 640 C510 630, 480 595, 450 555 C425 520, 390 520, 390 515 Z" fill="#C59B27"/>
+
+  <!-- Letter R inside -->
+  <text x="548" y="530" font-family="'Sora', 'Inter', 'Arial', sans-serif" font-weight="900" font-size="95" fill="#F0B323">R</text>
+
+  <!-- RAKAIZ Brand Name -->
+  <text x="500" y="715" text-anchor="middle" font-family="'Sora', 'Inter', 'Arial', sans-serif" font-weight="700" font-size="82" letter-spacing="14" fill="#F2EFE8">RAKAIZ</text>
+  <text x="500" y="775" text-anchor="middle" font-family="'Sora', 'Inter', 'Arial', sans-serif" font-weight="500" font-size="28" letter-spacing="24" fill="#F2EFE8">COMPANY</text>
+</svg>

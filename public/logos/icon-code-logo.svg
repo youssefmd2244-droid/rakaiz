@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Icon Code">
+  <defs>
+    <linearGradient id="ic-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFD66B"/>
+      <stop offset="0.55" stop-color="#F0B323"/>
+      <stop offset="1" stop-color="#B8860B"/>
+    </linearGradient>
+    <linearGradient id="ic-b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1c1c"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+  </defs>
+  <!-- rounded hexagon badge -->
+  <path d="M60 6 104 31v58L60 114 16 89V31z" fill="url(#ic-b)" stroke="url(#ic-g)" stroke-width="4" stroke-linejoin="round"/>
+  <!-- code brackets < / > -->
+  <path d="M46 42 28 60l18 18" fill="none" stroke="url(#ic-g)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M74 42 92 60 74 78" fill="none" stroke="#F5F5F5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M65 38 55 82" fill="none" stroke="url(#ic-g)" stroke-width="7" stroke-linecap="round"/>
+  <!-- pixel dot -->
+  <circle cx="60" cy="98" r="2.6" fill="#3B82F6"/>
+  <circle cx="69" cy="98" r="2.6" fill="#22B573"/>
+  <circle cx="51" cy="98" r="2.6" fill="#E5484D"/>
+</svg>

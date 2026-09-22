@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="100%" height="100%">
+  <rect width="400" height="120" rx="16" fill="#1A181E" stroke="#C59B27" stroke-width="2" stroke-opacity="0.3"/>
+  <circle cx="70" cy="60" r="26" fill="#6B3A2A"/>
+  <path d="M58 70 L70 50 L82 70 Z" fill="#F0B323"/>
+  <text x="235" y="52" text-anchor="middle" font-family="'Cairo', sans-serif" font-weight="800" font-size="18" fill="#FFFFFF">هيئة تطوير بوابة الدرعية</text>
+  <text x="235" y="78" text-anchor="middle" font-family="'Sora', sans-serif" font-weight="500" font-size="12" fill="#C59B27">Diriyah Gate Dev. Authority</text>
+</svg>

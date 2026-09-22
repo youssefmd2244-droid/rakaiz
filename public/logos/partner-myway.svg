@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="100%" height="100%">
+  <rect width="400" height="120" rx="16" fill="#1A181E" stroke="#C59B27" stroke-width="2" stroke-opacity="0.3"/>
+  <text x="200" y="52" text-anchor="middle" font-family="'Cairo', sans-serif" font-weight="900" font-size="22" fill="#F0B323">منتجع ماي واي</text>
+  <text x="200" y="78" text-anchor="middle" font-family="'Sora', sans-serif" font-weight="600" font-size="14" fill="#E4E4E7">MY WAY RESORT</text>
+</svg>
