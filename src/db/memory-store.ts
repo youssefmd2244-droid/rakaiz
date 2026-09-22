@@ -112,7 +112,7 @@ export function memDelete(table: string, id: number): void {
 export function memDeleteMany(table: string, ids: number[]): void {
   const s = store();
   if (!s.tables[table]) return;
-  s.tables[table] = s.tables[table].filter((r) => !ids.includes(r.id));
+  s.tables[table] = s.tables[table].filter((r) => r.id === undefined || !ids.includes(r.id));
 }
 
 export function memDeleteAll(table: string): void {
